@@ -1,0 +1,12 @@
+language: csharp
+mono: 5.4.1
+dotnet: 2.1.4
+before_script:
+  - publish=$(([[ "$TRAVIS_BRANCH" = "master" ]] || [[ "$TRAVIS_BRANCH" = "develop" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]) && echo true || echo false)
+script:
+  - ./build.sh -target="CI" -publish="$publish"
+cache:
+  directories:
+    - .packages
+    - tools/Addins
+    - tools/Modules
