@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spectre.CommandLine.Extensions.DependencyInjection", "Spectre.CommandLine.Extensions.DependencyInjection\Spectre.CommandLine.Extensions.DependencyInjection.csproj", "{55BC8767-759C-48CD-A927-F5A907E1712F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spectre.Cli.Extensions.DependencyInjection", "Spectre.Cli.Extensions.DependencyInjection\Spectre.Cli.Extensions.DependencyInjection.csproj", "{55BC8767-759C-48CD-A927-F5A907E1712F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

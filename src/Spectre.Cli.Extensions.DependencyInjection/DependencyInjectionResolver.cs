@@ -1,7 +1,8 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
+using Spectre.Cli;
 
-namespace Spectre.CommandLine.Extensions.DependencyInjection
+namespace Spectre.Cli.Extensions.DependencyInjection
 {
     internal class DependencyInjectionResolver : ITypeResolver
     {
