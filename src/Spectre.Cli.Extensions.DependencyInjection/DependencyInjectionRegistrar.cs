@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Spectre.CommandLine.Extensions.DependencyInjection
+namespace Spectre.Cli.Extensions.DependencyInjection
 {
     public class DependencyInjectionRegistrar : ITypeRegistrar
     {
