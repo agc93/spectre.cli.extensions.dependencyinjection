@@ -4,17 +4,23 @@ using Spectre.Cli;
 
 namespace Spectre.Cli.Extensions.DependencyInjection
 {
-    internal class DependencyInjectionResolver : ITypeResolver
+    internal class DependencyInjectionResolver : ITypeResolver, IDisposable
     {
-        internal DependencyInjectionResolver(IServiceCollection services)
+        private ServiceProvider ServiceProvider { get; }
+
+        internal DependencyInjectionResolver(ServiceProvider serviceProvider)
         {
-            Services = services;
+            ServiceProvider = serviceProvider;
         }
-        internal IServiceCollection Services {get;set;}
+
+        public void Dispose()
+        {
+            ServiceProvider.Dispose();
+        }
 
         public object Resolve(Type type)
         {
-            return (Services.BuildServiceProvider()).GetService(type) ?? Activator.CreateInstance(type);
+            return ServiceProvider.GetService(type) ?? Activator.CreateInstance(type);
         }
     }
 }
