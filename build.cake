@@ -1,6 +1,5 @@
 #load "build/helpers.cake"
 #load "build/version.cake"
-#load "build/publish.cake"
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -124,7 +123,7 @@ Task("Publish-NuGet-Package")
 .WithCriteria(() => HasEnvironmentVariable("NUGET_TOKEN"))
 .WithCriteria(() => HasEnvironmentVariable("GITHUB_REF"))
 //this criteria is kind of counter-intuitive: we ignore master because we're also going to be building tagged builds and they're the only stable builds we should be pushing
-.WithCriteria(() => EnvironmentVariable("GITHUB_REF").StartsWith("refs/tags/v") || EnvironmentVariable("GITHUB_REF") == "refs/tags/develop")
+.WithCriteria(() => EnvironmentVariable("GITHUB_REF").StartsWith("refs/tags/v") || EnvironmentVariable("GITHUB_REF") == "refs/heads/develop")
 .Does(() => {
     var nupkgDir = $"{artifacts}package";
     var nugetToken = EnvironmentVariable("NUGET_TOKEN");

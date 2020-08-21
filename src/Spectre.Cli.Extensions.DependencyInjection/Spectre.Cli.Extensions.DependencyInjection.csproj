@@ -10,7 +10,7 @@
     <PackageTags>spectre;commandline;cli;di;dependency injection;</PackageTags>
     <RepositoryUrl>https://github.com/agc93/spectre.cli.extensions.dependencyinjection</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/agc93/spectre.cli.extensions.dependencyinjection/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/agc93/spectre.cli.extensions.dependencyinjection</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
