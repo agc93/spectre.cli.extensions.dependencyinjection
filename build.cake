@@ -1,5 +1,7 @@
 #load "build/helpers.cake"
 #load "build/version.cake"
+#tool "nuget:https://api.nuget.org/v3/index.json?package=nuget.commandline&version=5.3.1"
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -125,9 +127,9 @@ Task("Publish-NuGet-Package")
 //this criteria is kind of counter-intuitive: we ignore master because we're also going to be building tagged builds and they're the only stable builds we should be pushing
 .WithCriteria(() => EnvironmentVariable("GITHUB_REF").StartsWith("refs/tags/v") || EnvironmentVariable("GITHUB_REF") == "refs/heads/develop")
 .Does(() => {
-    var nupkgDir = $"{artifacts}package";
     var nugetToken = EnvironmentVariable("NUGET_TOKEN");
-    var pkgFiles = GetFiles($"{nupkgDir}/*.nupkg");
+    var pkgFiles = GetFiles($"{artifacts}package/*.nupkg");
+	Information($"Pushing {pkgFiles.Count} package files!");
     NuGetPush(pkgFiles, new NuGetPushSettings {
       Source = "https://api.nuget.org/v3/index.json",
       ApiKey = nugetToken
