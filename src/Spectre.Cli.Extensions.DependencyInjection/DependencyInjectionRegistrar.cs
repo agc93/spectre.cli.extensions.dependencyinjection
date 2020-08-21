@@ -1,29 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Spectre.Cli.Extensions.DependencyInjection
 {
-    public class DependencyInjectionRegistrar : ITypeRegistrar
+    public class DependencyInjectionRegistrar : ITypeRegistrar, IDisposable
     {
-        private readonly IServiceCollection _services;
-
+        private IServiceCollection Services { get; }
+        private IList<IDisposable> BuiltProviders { get; }
+        
         public DependencyInjectionRegistrar(IServiceCollection services)
         {
-            _services = services;
+            Services = services;
+            BuiltProviders = new List<IDisposable>();
         }
         public ITypeResolver Build()
         {
-            return new DependencyInjectionResolver(_services);
+            var buildServiceProvider = Services.BuildServiceProvider();
+            BuiltProviders.Add(buildServiceProvider);
+            return new DependencyInjectionResolver(buildServiceProvider);
         }
 
         public void Register(Type service, Type implementation)
         {
-            _services.AddSingleton(service, implementation);
+            Services.AddSingleton(service, implementation);
         }
 
         public void RegisterInstance(Type service, object implementation)
         {
-            _services.AddSingleton(service, implementation);
+            Services.AddSingleton(service, implementation);
+        }
+
+        public void Dispose()
+        {
+            foreach (var provider in BuiltProviders)
+            {
+                provider.Dispose();
+            }
         }
     }
 }

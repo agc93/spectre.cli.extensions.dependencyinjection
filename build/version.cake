@@ -1,4 +1,5 @@
-#tool "nuget:?package=GitVersion.CommandLine"
+#module nuget:?package=Cake.DotNetTool.Module&version=0.4.0
+#tool "dotnet:https://api.nuget.org/v3/index.json?package=GitVersion.Tool&version=5.1.3"
 
 var fallbackVersion = Argument<string>("force-version", EnvironmentVariable("FALLBACK_VERSION") ?? "0.1.0");
  
