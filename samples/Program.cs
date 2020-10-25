@@ -1,0 +1,27 @@
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using Spectre.Cli;
+using Spectre.Cli.Extensions.DependencyInjection;
+
+namespace samples
+{
+    class Program
+    {
+        static int Main(string[] args)
+        {
+            var services = new ServiceCollection();
+            services.AddSingleton<GreetingService>();
+            // add extra services to the container here
+            using var registrar = new DependencyInjectionRegistrar(services);
+            var app = new CommandApp(registrar);
+            app.SetDefaultCommand<InfoCommand>();
+            app.Configure(config =>
+            {
+                config.AddCommand<InfoCommand>("greet");
+                // configure your commands as per usual
+                // commands are automatically added to the container
+            });
+            return app.Run(args);
+        }
+    }
+}
