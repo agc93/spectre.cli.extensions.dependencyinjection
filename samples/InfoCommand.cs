@@ -1,5 +1,5 @@
 using System;
-using Spectre.Cli;
+using Spectre.Console.Cli;
 
 namespace samples
 {
