@@ -10,7 +10,7 @@ string BuildVersion(string fallbackVersion) {
         Information("Attempting MinVer...");
         var settings = new MinVerSettings()
         {
-            AutoIncrement = MinVerAutoIncrement.Minor,
+            //AutoIncrement = MinVerAutoIncrement.Minor,
             DefaultPreReleasePhase = "preview",
             TagPrefix = "v"
         };
