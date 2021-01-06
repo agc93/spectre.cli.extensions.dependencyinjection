@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using Spectre.Console.Cli;
 
 namespace Spectre.Cli.Extensions.DependencyInjection
 {
@@ -8,7 +9,7 @@ namespace Spectre.Cli.Extensions.DependencyInjection
     {
         private IServiceCollection Services { get; }
         private IList<IDisposable> BuiltProviders { get; }
-        
+
         public DependencyInjectionRegistrar(IServiceCollection services)
         {
             Services = services;

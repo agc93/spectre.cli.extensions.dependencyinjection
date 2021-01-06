@@ -1,10 +1,12 @@
 # Spectre.Cli.Extensions.DependencyInjection
 
-A type provider for [`Spectre.Cli`](https://github.com/spectresystems/spectre.cli) using the [`Microsoft.Extensions.DependencyInjection`](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) container.
+A type provider for the CLI component of [`Spectre.Console`](https://github.com/spectresystems/spectre.console)  using the [`Microsoft.Extensions.DependencyInjection`](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) container.
+
+> This package was designed for `Spectre.Cli` which has now been merged into `Spectre.Console`.
 
 ## Getting started
 
-Once you've installed both `Spectre.Cli` and this package, just change the call to `new CommandApp()` in your `Program.cs` to match the below:
+Once you've installed both `Spectre.Console` and this package, just change the call to `new CommandApp()` in your `Program.cs` to match the below:
 
 ```csharp
 var services = new ServiceCollection();
