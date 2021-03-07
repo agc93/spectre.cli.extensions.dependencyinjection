@@ -15,6 +15,7 @@ namespace Spectre.Cli.Extensions.DependencyInjection
             Services = services;
             BuiltProviders = new List<IDisposable>();
         }
+
         public ITypeResolver Build()
         {
             var buildServiceProvider = Services.BuildServiceProvider();
@@ -30,6 +31,11 @@ namespace Spectre.Cli.Extensions.DependencyInjection
         public void RegisterInstance(Type service, object implementation)
         {
             Services.AddSingleton(service, implementation);
+        }
+
+        public void RegisterLazy(Type service, Func<object> factory)
+        {
+            Services.AddSingleton(service, _ => factory());
         }
 
         public void Dispose()
