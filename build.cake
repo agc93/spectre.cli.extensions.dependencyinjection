@@ -1,3 +1,4 @@
+#module nuget:?package=Cake.BuildSystems.Module&version=3.0.1
 #load "build/helpers.cake"
 #load "build/version.cake"
 #tool "nuget:https://api.nuget.org/v3/index.json?package=nuget.commandline&version=5.3.1"
@@ -81,7 +82,7 @@ Task("Build")
 		};
 		DotNetCoreBuild(project.FullPath, settings);
 	}
-	
+
 });
 
 Task("NuGet")
