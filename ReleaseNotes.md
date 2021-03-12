@@ -23,3 +23,8 @@
 # 0.3.0
 
 - **BREAKING**: Migrate from `Spectre.Cli` to `Spectre.Console`/`Spectre.Console.Cli`
+
+# 0.4.0
+
+- **BREAKING**: Migrate to `Spectre.Console` 0.38.0
+  - This will fail at runtime with older versions of Spectre.Console
