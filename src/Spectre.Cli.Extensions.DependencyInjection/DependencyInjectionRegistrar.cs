@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
-using Spectre.Console.Cli;
 
 namespace Spectre.Cli.Extensions.DependencyInjection
 {
