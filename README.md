@@ -1,8 +1,8 @@
 # Spectre.Cli.Extensions.DependencyInjection
 
-A type provider for the CLI component of [`Spectre.Console`](https://github.com/spectresystems/spectre.console)  using the [`Microsoft.Extensions.DependencyInjection`](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) container.
+> **This package is currently unmaintained! We strongly recommend upgrading to [this excellent fork from @devlead](https://github.com/WCOMAB/Spectre.Console.Cli.Extensions.DependencyInjection)!** It has been updated to support the newer versions of the library and should be an easy migration for current users of this library.
 
-> This package was designed for `Spectre.Cli` which has now been merged into `Spectre.Console`.
+A type provider for the CLI component of [`Spectre.Console`](https://github.com/spectresystems/spectre.console)  using the [`Microsoft.Extensions.DependencyInjection`](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) container.
 
 ## Getting started
 
